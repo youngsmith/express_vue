@@ -1,9 +1,12 @@
 <template>
   <div class="home-view-container">
+    <img alt="logo" src="../assets/logo.png">
+
     <h1>Adopt your best friend</h1>
-    {{ catsCount }} |
-    {{ dogsCount }}
-    <button class="btn btn-primary" @click="togglePetForm()">Add New Pet</button>
+
+    <div class="number_of_pets">Dogs : {{ catsCount }} | Cats : {{ dogsCount }}</div>
+
+    <button class="btn btn-primary register_button" @click="togglePetForm()">Register New Pet</button>
 
     <b-form @submit.prevent="handleSubmit" v-if="showPetForm">
       <b-form-group id="input-group-2" label="Name:" label-for="input-2">
@@ -143,3 +146,13 @@ export default {
   }
 }
 </script>
+
+
+<style>
+.number_of_pets{
+  margin: 100px 0px 40px 0px;
+}
+.register_button {
+  margin: 0 0 40px;
+}
+</style>

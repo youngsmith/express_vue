@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Latest Posts</h1>
-    <button @click="getPosts">Get Post!</button>
+    <b-button variant="outline-primary" @click="getPosts">Refresh</b-button>
     <div class="create-post">
       <label for="create-post">message : </label>
       <input type="text" id="create-post" v-model="text" placeholder="create a post" @keyup.enter="handlePost">
@@ -13,7 +13,6 @@
         <div class="post"
           v-for="(post) in posts"
           :key="post._id"
-          @dblclick="deletePost(post._id)"
         >
           {{ `${ post.createdAt }` }}
           <p class="text">{{ post.data }}</p>
@@ -57,6 +56,9 @@ export default {
         this.error = err.message;
       }
     }
-  }
+  },
+  created() {
+    this.getPosts();
+  },
 }
 </script>
