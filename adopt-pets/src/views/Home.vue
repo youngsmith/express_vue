@@ -123,7 +123,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      'addPet'
+      'addPet',
     ]),
     togglePetForm(){
       if(this.showPetForm){

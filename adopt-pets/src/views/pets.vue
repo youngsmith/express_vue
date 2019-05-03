@@ -21,7 +21,6 @@ export default {
         pet(){
             if(this.$route.params.species == 'dogs') return this.dogs[this.$route.params.id];
             else return this.cats[this.$route.params.id];
-            
         }
     }
 }
