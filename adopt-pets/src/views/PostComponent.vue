@@ -2,13 +2,7 @@
   <div class="container">
     <h1>Latest Posts</h1>
     <b-button @click="getPosts">Refresh</b-button>
-    <router-link to="/write">write</router-link>
-
-    <div class="create-post">
-      <label for="create-post">message : </label>
-      <input type="text" id="create-post" v-model="text" placeholder="create a post" @keyup.enter="handlePost">
-      <button @click="handlePost">Post!</button>
-    </div>
+    <router-link to="/write"><b-button id="write_button">write</b-button></router-link>
     <hr>
     <p class="error" v-if="error"> {{ error }} </p>
     <div v-else class="overflow-auto">
@@ -25,7 +19,6 @@
         :fields="fields"
         :per-page="perPage"
         :current-page="currentPage"
-        dark
         outlined
         bordered
         hover
@@ -103,6 +96,9 @@ export default {
 <style>
 button {
   margin: 10px;
+}
+#my-table {
+  background-color:aliceblue
 }
 </style>
 

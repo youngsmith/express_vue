@@ -10,9 +10,7 @@
                 </div>
             </div>
             <hr>
-            <div id="contents">
-             {{ doc.data }}
-            </div>
+            <div v-html="doc.data" id="contents"></div>
         </div>
         
         
@@ -45,6 +43,7 @@ export default {
 <style>
 #read {
     margin-top: 100px;
+    margin-bottom: 100px;
     border-style: solid;
     border-width:thin;
     border-radius: 1px;
@@ -59,9 +58,9 @@ export default {
     margin-right: 10px;
 }
 #contents {
-    height: 150px;
+    height: auto;
     padding: 3%;
-    margin-bottom: 3%;
+    margin-bottom: 15%;
     text-align:justify;
 }
 #head {

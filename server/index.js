@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 const app = express();
 
 // middelware
-app.use(bodyparser.json());
+app.use(bodyparser.json({limit: '10mb'}));
 app.use(cors());
 
 const posts = require('./rountes/api/posts');

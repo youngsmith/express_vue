@@ -17,10 +17,8 @@ class PostService {
     }
 
     // Create Post
-    static insertPost(text){
-        return axios.post(url, {
-            data : text
-        });
+    static insertPost(data){
+        return axios.post(url, data);
     }
 
     // Delete Post

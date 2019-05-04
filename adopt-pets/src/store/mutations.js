@@ -14,6 +14,8 @@ export default {
     },
     createPost: async(state, payload) => {
         try{
+            console.log('createPost!')
+            console.log(payload);
             await PostService.insertPost(payload);
             state.posts = await PostService.getPosts();
         } catch(err){

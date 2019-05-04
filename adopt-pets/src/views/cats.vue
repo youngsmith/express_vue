@@ -1,6 +1,5 @@
 <template>
     <div>
-        {{ posts }}
         <h1>Cats for Adoption</h1>
         <b-table striped hover :items="cats">
             <template slot="name" slot-scope="data">
