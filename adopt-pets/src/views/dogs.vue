@@ -1,5 +1,6 @@
 <template>
     <div>
+        {{ posts }}
         <h1>Dogs for Adoption</h1>
         <b-table striped hover :items="dogs">
             <template slot="name" slot-scope="data">
@@ -21,7 +22,8 @@ export default {
     },
     computed: {
         ...mapState([
-            'dogs'
+            'dogs',
+            'posts'
         ])
     }
 }

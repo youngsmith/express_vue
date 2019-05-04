@@ -27,6 +27,10 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+body {
+  background-image: url('./assets/bg_img2.jpg');
+  background-size: cover
+}
 #nav {
   padding: 30px;
   a {

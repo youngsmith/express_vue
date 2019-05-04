@@ -3,9 +3,9 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import cats from './views/cats.vue'
 import dogs from './views/dogs.vue'
-import pets from './views/pets.vue'
 import posts from './views/PostComponent.vue'
-
+import read from './views/read.vue'
+import write from './views/Editor.vue'
 
 Vue.use(Router)
 
@@ -29,14 +29,19 @@ export default new Router({
       component: dogs
     },
     {
-      path: '/pets/:species/:id',
-      name: 'pets',
-      component: pets
-    },
-    {
       path: '/posts',
       name: 'posts',
       component: posts
+    },
+    {
+      path: '/posts/:index',
+      name: 'read',
+      component: read
+    },
+    {
+      path: '/write',
+      name: 'write',
+      component: write
     }
   ]
 })

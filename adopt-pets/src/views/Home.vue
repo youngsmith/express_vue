@@ -101,6 +101,9 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'home',
+  created() {
+    this.getPosts();
+  },
   data(){
     return {
       showPetForm: false,
@@ -127,6 +130,7 @@ export default {
   methods: {
     ...mapActions([
       'addPet',
+      'getPosts'
     ]),
     togglePetForm(){
       if(this.showPetForm){

@@ -23,10 +23,18 @@ router.get('/', (req,res)=>{
 router.post('/',(req,res)=>{
     let date = new Date();
     console.log(req.body.data);
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    if(hour < 10) hour = '0' + hour;
+    if(min < 10) min = '0' + min;
+
     const Post = new post({
         _id: new mongoose.Types.ObjectId(),
+        userId: 'none',
+        title: 'none',
         data: req.body.data,
-        createdAt: `${date.getFullYear()} / ${date.getMonth() + 1} / ${date.getDate()}  ${date.getHours()}:${date.getMinutes()}`
+        createDate: `${date.getFullYear() % 100}.${date.getMonth() + 1}.${date.getDate()}`,
+        createTime: `${hour}:${min}`
     });
     Post
         .save()

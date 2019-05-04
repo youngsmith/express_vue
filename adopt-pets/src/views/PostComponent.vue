@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <h1>Latest Posts</h1>
-    <b-button variant="outline-primary" @click="getPosts">Refresh</b-button>
+    <b-button @click="getPosts">Refresh</b-button>
+    <router-link to="/write">write</router-link>
+
     <div class="create-post">
       <label for="create-post">message : </label>
       <input type="text" id="create-post" v-model="text" placeholder="create a post" @keyup.enter="handlePost">
@@ -9,15 +11,38 @@
     </div>
     <hr>
     <p class="error" v-if="error"> {{ error }} </p>
-    <div class="posts-container">
-        <div class="post"
-          v-for="(post) in posts"
-          :key="post._id"
-        >
-          {{ `${ post.createdAt }` }}
-          <p class="text">{{ post.data }}</p>
-        </div>
+    <div v-else class="overflow-auto">
+      <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+      >
+      </b-pagination>
+      <b-table
+        id="my-table"
+        :items="posts"
+        :fields="fields"
+        :per-page="perPage"
+        :current-page="currentPage"
+        dark
+        outlined
+        bordered
+        hover
+        small
+      >
+        <template slot="index" slot-scope="data">
+          {{ data.index + 1 }}
+        </template>
+
+        <template slot="title" slot-scope="data">
+        <!-- `data.value` is the value after formatted by the Formatter -->
+        <router-link :to="`/posts/${ data.index + (currentPage - 1) * perPage }`">{{ data.value }}</router-link>
+        </template>
+
+      </b-table>
     </div>
+
   </div>
 </template>
 
@@ -27,6 +52,15 @@ import { mapState, mapActions } from 'vuex';
 export default {
   data() {
     return {
+      fields: [
+        'index',
+        'title',
+        { key: 'userId', label: 'id' },
+        { key: 'createDate', label: 'Date' },
+        { key: 'createTime', label: 'Time' }
+      ],
+      perPage: 20,
+      currentPage: 1,
       error: '',
       text: ''
     }
@@ -34,7 +68,10 @@ export default {
   computed: {
     ...mapState([
         'posts'
-    ])
+    ]),
+    rows(){
+      return this.posts.length;
+    }
   },
   methods: {
     ...mapActions([
@@ -62,3 +99,11 @@ export default {
   },
 }
 </script>
+
+<style>
+button {
+  margin: 10px;
+}
+</style>
+
+
