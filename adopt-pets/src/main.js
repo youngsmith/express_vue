@@ -7,8 +7,13 @@ import './assets/sass/index.sass'
 import App from './App.vue'
 import router from './router'
 import store from './store/'
-
-
+import * as VueGoogleMaps from "vue2-google-maps";
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "",
+    libraries: "places" // necessary for places input
+  }
+});
 
 Vue.use(BootstrapVue)
 

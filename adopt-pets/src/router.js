@@ -7,6 +7,7 @@ import posts from './views/PostComponent.vue'
 import read from './views/read.vue'
 import write from './views/Editor.vue'
 import gmaps from './views/gmaps.vue'
+import gmaps2 from './views/gmaps2.vue'
 
 Vue.use(Router)
 
@@ -47,7 +48,7 @@ export default new Router({
     {
       path: '/gmaps',
       name: 'gmaps',
-      component: gmaps
+      component: gmaps2
     }
   ]
 })
