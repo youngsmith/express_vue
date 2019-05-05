@@ -21,9 +21,7 @@ router.get('/', (req,res)=>{
 
 // add post
 router.post('/',(req,res)=>{
-    console.log('2222222222');
     let date = new Date();
-    console.log(req.body);
     let hour = date.getHours();
     let min = date.getMinutes();
     if(hour < 10) hour = '0' + hour;

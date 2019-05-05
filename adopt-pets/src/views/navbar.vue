@@ -6,6 +6,7 @@
                 <b-nav-item><router-link to="/cats">Cats</router-link></b-nav-item>
                 <b-nav-item><router-link to="/dogs">Dogs</router-link></b-nav-item>
                 <b-nav-item><router-link to="/posts">Posts</router-link></b-nav-item>
+                <b-nav-item><router-link to="/gmaps">gmaps</router-link></b-nav-item>
 
                 <!-- Navbar dropdowns 
                 <img alt="logo" src="../assets/logo.png">

@@ -1,16 +1,16 @@
 <template>
     <div>
         <div id="read">
-            <div id="head">
+            <div id="read_head">
                 <h3>{{ doc.title }}</h3>
-                <div id="timestamp">
+                <div id="read_timestamp">
                     작성일 | 
                     {{ doc.createDate }}
                     {{ doc.createTime }}
                 </div>
             </div>
             <hr>
-            <div v-html="doc.data" id="contents"></div>
+            <div v-html="doc.data" id="read_contents"></div>
         </div>
         
         
@@ -52,18 +52,18 @@ export default {
     box-shadow: 2px 2px 2px 2px gray;
     background-color:ghostwhite;
 }
-#timestamp {
+#read_timestamp {
     font-size: 80%;
     text-align: right;
     margin-right: 10px;
 }
-#contents {
+#read_contents {
     height: auto;
     padding: 3%;
     margin-bottom: 15%;
     text-align:justify;
 }
-#head {
+#read_head {
     padding: 5%;
     height: 100px;
 }

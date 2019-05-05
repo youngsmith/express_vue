@@ -41,4 +41,7 @@ body {
     }
   }
 }
+button {
+  margin: 3px;
+}
 </style>

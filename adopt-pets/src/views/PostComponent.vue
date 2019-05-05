@@ -1,9 +1,13 @@
 <template>
   <div class="container">
-    <h1>Latest Posts</h1>
-    <b-button @click="getPosts">Refresh</b-button>
-    <router-link to="/write"><b-button id="write_button">write</b-button></router-link>
-    <hr>
+    <div id="pc_head">
+      <h1>Latest Posts</h1>
+    </div>
+    <div class="pc_btn_container" align='right'>
+      <b-button id="pc_button" @click="getPosts">Refresh</b-button>
+      <router-link to="/write"><b-button id="pc_button">write</b-button></router-link>
+    </div>
+    <hr id="pc_hr">
     <p class="error" v-if="error"> {{ error }} </p>
     <div v-else class="overflow-auto">
       <b-pagination
@@ -54,13 +58,13 @@ export default {
       ],
       perPage: 20,
       currentPage: 1,
-      error: '',
       text: ''
     }
   },
   computed: {
     ...mapState([
-        'posts'
+        'posts',
+        'error'
     ]),
     rows(){
       return this.posts.length;
@@ -94,11 +98,18 @@ export default {
 </script>
 
 <style>
-button {
-  margin: 10px;
+#pc_button {
+  margin: 0 0 0 10px;
+  width: auto;
 }
 #my-table {
   background-color:aliceblue
+}
+#pc_hr {
+  margin-top: 3px;
+}
+#pc_head{
+  margin: 10% 0 5% 0;
 }
 </style>
 
