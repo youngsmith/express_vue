@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 
 const post = require('../../models/post');
+const pet = require('../../models/pet');
 
 // get posts
 router.get('/', (req,res)=>{
@@ -26,6 +27,7 @@ router.post('/',(req,res)=>{
     let min = date.getMinutes();
     if(hour < 10) hour = '0' + hour;
     if(min < 10) min = '0' + min;
+    console.log(req.body);
     
     const Post = new post({
         _id: new mongoose.Types.ObjectId(),
@@ -33,7 +35,8 @@ router.post('/',(req,res)=>{
         title: req.body.title,
         data: req.body.content,
         createDate: `${date.getFullYear() % 100}.${date.getMonth() + 1}.${date.getDate()}`,
-        createTime: `${hour}:${min}`
+        createTime: `${hour}:${min}`,
+        petInfo: req.body.petInfo
     });
     Post
         .save()

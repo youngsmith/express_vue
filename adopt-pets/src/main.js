@@ -10,10 +10,14 @@ import store from './store/'
 import * as VueGoogleMaps from "vue2-google-maps";
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "",
+    key: {apikey},
     libraries: "places" // necessary for places input
   }
 });
+
+//import myplugin from './plugins/my_plugin';
+//Vue.use(myplugin);
+
 
 Vue.use(BootstrapVue)
 

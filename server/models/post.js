@@ -7,15 +7,26 @@ const postSchema = mongoose.Schema({
     data: { type: String, required: true },
     createDate: { type: String, require: true },
     createTime: { type: String, require: true },
-    pet: {
+    petInfo: {
         name: { type: String, require: false },
-        breed: { type: String, require: false },
-        species: { type: String, require: true },
-        gender: { type: String, require: false },
         age: { type: Number, require: false },
+        species: { type: String, require: true },
+        breed: { type: String, require: false },
+        gender: { type: String, require: false },
         color: { type: String, require: true },
         weight: { type: Number, require: false },
-        location: { type: String, require: true }
+        location: { 
+            lat: { type: Number, require: true },
+            lng: { type: Number, require: true }
+        },
+        note: { type: String, require: false },
+        time: { 
+            year: { type: String, require: true },
+            month: { type: String, require: true },
+            day: { type: String, require: true },
+            hour: { type: String, require: true },
+            min: { type: String, require: true }
+        }
     }
 });
 

@@ -39,7 +39,6 @@
 
       </b-table>
     </div>
-
   </div>
 </template>
 

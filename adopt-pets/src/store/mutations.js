@@ -1,10 +1,6 @@
 import PostService from '../PostService';
 
 export default {
-    appendPet: (state, payload) =>{
-        let species = payload.species + 's';
-        state[species].push(payload);
-    },
     getPosts: async (state) =>{
         try{
             state.posts = await PostService.getPosts();
@@ -21,5 +17,12 @@ export default {
         } catch(err){
             state.error = err;
         }
-      }
+    },
+    setPosition: (state, payload) => {
+        try{
+            state.position = payload;
+        } catch(err){
+            state.error = err;
+        }
+    }   
 }
